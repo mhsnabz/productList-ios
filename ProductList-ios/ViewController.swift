@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = .yellow
+        self.loading(isShow: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            self.loading(isShow: false)
+        })
     }
 
-
 }
-
