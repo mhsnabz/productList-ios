@@ -26,6 +26,7 @@ final class ProductListVC: BaseController, ControllerCombineBehaviorally {
         binding()
         inputPR.send(.setupUI(collectionView: collectionView)) // The reference in the Xib file should be connected to the added CollectionView.
         inputVM.send(.start)
+        self.view.backgroundColor = .red
     }
 
     func inject(vm: V, provider: any P) {

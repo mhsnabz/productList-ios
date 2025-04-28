@@ -15,6 +15,8 @@
 		8D3C55412DBFFE4A00E159A8 /* ProductListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55402DBFFE4A00E159A8 /* ProductListService.swift */; };
 		8D3C55442DBFFE6000E159A8 /* ProductListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55432DBFFE6000E159A8 /* ProductListModel.swift */; };
 		8D3C55462DBFFE6E00E159A8 /* ProductListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55452DBFFE6E00E159A8 /* ProductListBuilder.swift */; };
+		8D3C55482DC003AD00E159A8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55472DC003AD00E159A8 /* Coordinator.swift */; };
+		8D3C554D2DC0040500E159A8 /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C554C2DC0040500E159A8 /* ProductListCoordinator.swift */; };
 		8DA7C1912DBFF4B30040E24D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1902DBFF4B30040E24D /* CombineMoya */; };
 		8DA7C1932DBFF4B30040E24D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1922DBFF4B30040E24D /* Moya */; };
 		8DA7C1952DBFF4B30040E24D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1942DBFF4B30040E24D /* RxMoya */; };
@@ -48,6 +50,8 @@
 		8D3C55402DBFFE4A00E159A8 /* ProductListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListService.swift; sourceTree = "<group>"; };
 		8D3C55432DBFFE6000E159A8 /* ProductListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModel.swift; sourceTree = "<group>"; };
 		8D3C55452DBFFE6E00E159A8 /* ProductListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListBuilder.swift; sourceTree = "<group>"; };
+		8D3C55472DC003AD00E159A8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8D3C554C2DC0040500E159A8 /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
 		8DA7C1672DBFF42B0040E24D /* ProductList-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProductList-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA7C19C2DBFF55A0040E24D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA7C19D2DBFF55A0040E24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +124,14 @@
 			path = ProductList;
 			sourceTree = "<group>";
 		};
+		8D3C55492DC003EC00E159A8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8D3C554C2DC0040500E159A8 /* ProductListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		8DA7C15E2DBFF42B0040E24D = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8DA7C1CC2DBFF72B0040E24D /* Lottie */,
+				8D3C55492DC003EC00E159A8 /* Coordinator */,
 				8DA7C1B22DBFF5930040E24D /* Layers */,
 				8DA7C1B12DBFF58A0040E24D /* View */,
 				8DA7C1B02DBFF5800040E24D /* Interfaces */,
@@ -189,6 +202,7 @@
 				8DA7C1C12DBFF6140040E24D /* TableViewProvider.swift */,
 				8DA7C1C32DBFF62F0040E24D /* ViewModel.swift */,
 				8DA7C1CF2DBFF7730040E24D /* LoadingProtocol.swift */,
+				8D3C55472DC003AD00E159A8 /* Coordinator.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -414,8 +428,10 @@
 				8DA7C1D32DBFF7B90040E24D /* BaseController.swift in Sources */,
 				8DA7C1DC2DBFF8510040E24D /* Extension+UIApplication.swift in Sources */,
 				8D3C553E2DBFFE3A00E159A8 /* ProductListUseCase.swift in Sources */,
+				8D3C554D2DC0040500E159A8 /* ProductListCoordinator.swift in Sources */,
 				8DA7C1CB2DBFF6CE0040E24D /* ClassNameProtocol.swift in Sources */,
 				8D3C55462DBFFE6E00E159A8 /* ProductListBuilder.swift in Sources */,
+				8D3C55482DC003AD00E159A8 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
