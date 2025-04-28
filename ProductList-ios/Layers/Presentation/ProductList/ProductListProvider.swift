@@ -22,7 +22,7 @@ final class ProductListProviderImpl: NSObject, ProductListProvider {
     
     private weak var collectionView: UICollectionView?
     
-    // If needed, add the magic numbers here.
+  
     private enum Layout {
         static let estimatedCellHeight: CGFloat = 54
     }
@@ -78,18 +78,23 @@ extension ProductListProviderImpl: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let section = dataList[section]
         switch section {
-        case .defaultSection(let rows): return rows.count
+        case .headerSection(rows: let rows): return rows.count
+        case .listSection(rows: let rows): return rows.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = dataList[indexPath.section]
         switch section {
-        case .defaultSection(let rows):
+        case .headerSection(rows: let rows):
+            return UICollectionViewCell()
+        case .listSection(rows: let rows):
+            return UICollectionViewCell()
+        /*case .defaultSection(let rows):
             let rowType = rows[indexPath.row]
             switch rowType {
             default: return UICollectionViewCell()
-            }
+            }*/
         }
     }
     

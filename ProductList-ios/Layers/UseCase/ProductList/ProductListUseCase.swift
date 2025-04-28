@@ -8,6 +8,8 @@ import Foundation
 import Combine
 
 protocol ProductListUseCase {
+    func getProductList() -> AnyPublisher<[ProductListModel]?,BaseError>
+    func getHeaderProcuts(limit: Int) -> AnyPublisher<[ProductListModel]?,BaseError>
 }
 
 struct ProductListUseCaseImpl: ProductListUseCase {
@@ -19,4 +21,11 @@ struct ProductListUseCaseImpl: ProductListUseCase {
 
 // MARK: - For Combine
 extension ProductListUseCaseImpl {
+    func getProductList() -> AnyPublisher<[ProductListModel]?,BaseError> {
+        service.getProductList()
+    }
+    
+    func getHeaderProcuts(limit: Int) -> AnyPublisher<[ProductListModel]?,BaseError> {
+        service.getHeaderProcuts(limit: limit)
+    }
 }

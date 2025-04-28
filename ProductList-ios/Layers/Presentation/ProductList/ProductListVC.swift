@@ -24,9 +24,8 @@ final class ProductListVC: BaseController, ControllerCombineBehaviorally {
     override func viewDidLoad() {
         super.viewDidLoad()
         binding()
-        inputPR.send(.setupUI(collectionView: collectionView)) // The reference in the Xib file should be connected to the added CollectionView.
+        inputPR.send(.setupUI(collectionView: collectionView))
         inputVM.send(.start)
-        self.view.backgroundColor = .red
     }
 
     func inject(vm: V, provider: any P) {
@@ -40,8 +39,14 @@ extension ProductListVC {
     func binding() {
         // VM Event Binding
         let output = vm?.activityHandler(input: inputVM.eraseToAnyPublisher())
-        output?.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] event in // If not needed, DispatchQueue.main can be removed.
+        output?.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] event in
             switch event {
+            case .updateUI(sections: let section):
+                Logger.d(message: "section :\(section)")
+            case .error(error: let error):
+                Logger.e(message: error.localizedDescription)
+            case .isLoading(isShow: let isShow):
+                self?.loading(isShow: isShow)
             default: break
             }
         }).store(in: &cancellabes)

@@ -27,10 +27,34 @@ final class ProductListVMImpl:  ProductListVM  {
     func activityHandler(input: AnyPublisher<ProductListVMInput, Never>) -> AnyPublisher<ProductListVMOutput, Never> {
         input.sink { [weak self] inputEvent in
             switch inputEvent {
-            default: break
+            case .start:
+                self?.start()
             }
         }.store(in: &cancellables)
         return output.eraseToAnyPublisher()
+    }
+    
+    private func start() {
+        guard let useCase else { return }
+        self.output.send(.isLoading(isShow: true))
+        let productListPublisher = useCase.getProductList()
+        let headerListPublisher = useCase.getHeaderProcuts(limit: 5)
+        
+        Publishers.Zip(productListPublisher, headerListPublisher)
+            .sink {[weak self] completion in
+                guard let self else { return }
+                switch completion {
+                case .finished:
+                    self.output.send(.isLoading(isShow: false))
+                case .failure(let error):
+                    self.output.send(.error(error: error))
+                }
+            } receiveValue: {[weak self] (productList, headerList) in
+                guard let self else { return }
+                let sections = self.prepareUI(headerList: headerList, productList: productList)
+                self.output.send(.updateUI(sections: sections))
+            }.store(in: &cancellables)
+
     }
 }
 
@@ -38,6 +62,7 @@ final class ProductListVMImpl:  ProductListVM  {
 extension ProductListVMImpl {
     enum ProductListVMOutput {
         case isLoading(isShow: Bool), updateUI(sections: [SectionType])
+        case error(error: BaseError)
     }
 
     enum ProductListVMInput {
@@ -45,16 +70,38 @@ extension ProductListVMImpl {
     }
 
     enum SectionType {
-        case defaultSection(rows: [RowType])
+        case headerSection(rows: [RowType])
+        case listSection(rows: [RowType])
     }
     
     enum RowType {
-        case item
+        case product(model: ProductListModel)
     }
 }
 
 // MARK: - Prepare UI
 extension ProductListVMImpl {
+    private func prepareUI(headerList: [ProductListModel]?, productList: [ProductListModel]?) -> [SectionType]{
+        var headerRows = [RowType]()
+        var rows = [RowType]()
+        if let headerList {
+            headerList.forEach { model in
+                headerRows.append(.product(model: model))
+            }
+        }
+        
+        self.sections.append(.headerSection(rows: headerRows))
+        
+        if let productList {
+            productList.forEach { model in
+                rows.append(.product(model: model))
+            }
+        }
+        
+        self.sections.append(.listSection(rows: rows))
+        
+        return sections
+    }
 }
 
 // MARK: - Services

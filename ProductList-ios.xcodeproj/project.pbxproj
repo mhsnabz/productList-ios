@@ -17,6 +17,11 @@
 		8D3C55462DBFFE6E00E159A8 /* ProductListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55452DBFFE6E00E159A8 /* ProductListBuilder.swift */; };
 		8D3C55482DC003AD00E159A8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55472DC003AD00E159A8 /* Coordinator.swift */; };
 		8D3C554D2DC0040500E159A8 /* ProductListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C554C2DC0040500E159A8 /* ProductListCoordinator.swift */; };
+		8D3C55512DC010BE00E159A8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C55502DC010BE00E159A8 /* ProductCell.xib */; };
+		8D3C55522DC010BE00E159A8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C554F2DC010BE00E159A8 /* ProductCell.swift */; };
+		8D3C55542DC0111400E159A8 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55532DC0111400E159A8 /* Extension+UIView.swift */; };
+		8D3C55562DC0158600E159A8 /* ProductNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55552DC0158600E159A8 /* ProductNetwork.swift */; };
+		8D3C55592DC0160A00E159A8 /* ApiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55582DC0160A00E159A8 /* ApiConstant.swift */; };
 		8DA7C1912DBFF4B30040E24D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1902DBFF4B30040E24D /* CombineMoya */; };
 		8DA7C1932DBFF4B30040E24D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1922DBFF4B30040E24D /* Moya */; };
 		8DA7C1952DBFF4B30040E24D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1942DBFF4B30040E24D /* RxMoya */; };
@@ -52,6 +57,11 @@
 		8D3C55452DBFFE6E00E159A8 /* ProductListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListBuilder.swift; sourceTree = "<group>"; };
 		8D3C55472DC003AD00E159A8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8D3C554C2DC0040500E159A8 /* ProductListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCoordinator.swift; sourceTree = "<group>"; };
+		8D3C554F2DC010BE00E159A8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		8D3C55502DC010BE00E159A8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		8D3C55532DC0111400E159A8 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		8D3C55552DC0158600E159A8 /* ProductNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNetwork.swift; sourceTree = "<group>"; };
+		8D3C55582DC0160A00E159A8 /* ApiConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstant.swift; sourceTree = "<group>"; };
 		8DA7C1672DBFF42B0040E24D /* ProductList-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProductList-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA7C19C2DBFF55A0040E24D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA7C19D2DBFF55A0040E24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +142,24 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		8D3C554E2DC010A500E159A8 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				8D3C554F2DC010BE00E159A8 /* ProductCell.swift */,
+				8D3C55502DC010BE00E159A8 /* ProductCell.xib */,
+				8D3C55532DC0111400E159A8 /* Extension+UIView.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		8D3C55572DC0160400E159A8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8D3C55582DC0160A00E159A8 /* ApiConstant.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		8DA7C15E2DBFF42B0040E24D = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +215,7 @@
 		8DA7C1AF2DBFF56E0040E24D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8D3C55572DC0160400E159A8 /* Constants */,
 				8DA7C1DA2DBFF8430040E24D /* Extensions */,
 				8DA7C1D72DBFF8140040E24D /* Logger */,
 			);
@@ -210,6 +239,7 @@
 		8DA7C1B12DBFF58A0040E24D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8D3C554E2DC010A500E159A8 /* ProductList */,
 				8DA7C1C52DBFF6560040E24D /* CustomProgress */,
 			);
 			path = View;
@@ -231,6 +261,7 @@
 		8DA7C1B72DBFF5AA0040E24D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8D3C55552DC0158600E159A8 /* ProductNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -398,6 +429,7 @@
 				8DA7C1A92DBFF55A0040E24D /* Assets.xcassets in Resources */,
 				8DA7C1C92DBFF6750040E24D /* CustomProgress.xib in Resources */,
 				8DA7C1AB2DBFF55A0040E24D /* LaunchScreen.storyboard in Resources */,
+				8D3C55512DC010BE00E159A8 /* ProductCell.xib in Resources */,
 				8DA7C1CE2DBFF73A0040E24D /* progress.json in Resources */,
 				8D3C55382DBFFDE100E159A8 /* ProductListVC.xib in Resources */,
 			);
@@ -412,6 +444,7 @@
 			files = (
 				8DA7C1A62DBFF55A0040E24D /* AppDelegate.swift in Sources */,
 				8DA7C1BE2DBFF5E60040E24D /* CollectionViewProvider.swift in Sources */,
+				8D3C55542DC0111400E159A8 /* Extension+UIView.swift in Sources */,
 				8DA7C1D02DBFF7730040E24D /* LoadingProtocol.swift in Sources */,
 				8DA7C1C02DBFF5FD0040E24D /* ControllerBehaviorally.swift in Sources */,
 				8DA7C1A72DBFF55A0040E24D /* SceneDelegate.swift in Sources */,
@@ -425,11 +458,14 @@
 				8D3C55392DBFFDE100E159A8 /* ProductListVM.swift in Sources */,
 				8D3C553A2DBFFDE100E159A8 /* ProductListVC.swift in Sources */,
 				8D3C553B2DBFFDE100E159A8 /* ProductListProvider.swift in Sources */,
+				8D3C55592DC0160A00E159A8 /* ApiConstant.swift in Sources */,
 				8DA7C1D32DBFF7B90040E24D /* BaseController.swift in Sources */,
 				8DA7C1DC2DBFF8510040E24D /* Extension+UIApplication.swift in Sources */,
 				8D3C553E2DBFFE3A00E159A8 /* ProductListUseCase.swift in Sources */,
 				8D3C554D2DC0040500E159A8 /* ProductListCoordinator.swift in Sources */,
 				8DA7C1CB2DBFF6CE0040E24D /* ClassNameProtocol.swift in Sources */,
+				8D3C55522DC010BE00E159A8 /* ProductCell.swift in Sources */,
+				8D3C55562DC0158600E159A8 /* ProductNetwork.swift in Sources */,
 				8D3C55462DBFFE6E00E159A8 /* ProductListBuilder.swift in Sources */,
 				8D3C55482DC003AD00E159A8 /* Coordinator.swift in Sources */,
 			);
