@@ -43,6 +43,7 @@ extension ProductListVC {
             switch event {
             case .updateUI(sections: let section):
                 Logger.d(message: "section :\(section)")
+                self?.inputPR.send(.prepareCollectionView(data: section))
             case .error(error: let error):
                 Logger.e(message: error.localizedDescription)
             case .isLoading(isShow: let isShow):

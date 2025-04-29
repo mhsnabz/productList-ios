@@ -70,11 +70,11 @@ extension ProductListVMImpl {
     }
 
     enum SectionType {
-        case headerSection(rows: [RowType])
         case listSection(rows: [RowType])
     }
     
     enum RowType {
+        case headerProduct(model: [ProductListModel])
         case product(model: ProductListModel)
     }
 }
@@ -84,21 +84,33 @@ extension ProductListVMImpl {
     private func prepareUI(headerList: [ProductListModel]?, productList: [ProductListModel]?) -> [SectionType]{
         var headerRows = [RowType]()
         var rows = [RowType]()
+        var headerModel = [ProductListModel]()
+        
         if let headerList {
             headerList.forEach { model in
-                headerRows.append(.product(model: model))
+                var mutableModel = model
+                mutableModel.setSellerCount(count: Int.random(in: 100...500))
+                mutableModel.setFollowerCount(count: Int.random(in: 1000...10000))
+                mutableModel.setDiscountRate(rate: Int.random(in: 10...50))
+                headerModel.append(mutableModel)
             }
+            headerRows.append(.headerProduct(model: headerModel))
         }
         
-        self.sections.append(.headerSection(rows: headerRows))
-        
+        self.sections.append(.listSection(rows: headerRows))
+
         if let productList {
             productList.forEach { model in
-                rows.append(.product(model: model))
+                var mutableModel = model
+                mutableModel.setSellerCount(count: Int.random(in: 100...500))
+                mutableModel.setFollowerCount(count: Int.random(in: 1000...10000))
+                mutableModel.setDiscountRate(rate: Int.random(in: 10...50))
+                rows.append(.product(model: mutableModel))
             }
         }
         
         self.sections.append(.listSection(rows: rows))
+
         
         return sections
     }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HeaderCell" customModule="ProductList_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="516" height="209"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="516" height="209"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfU-OS-sWr">
+                        <rect key="frame" x="4" y="4" width="508" height="181"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PW2-rd-fOX">
+                                <rect key="frame" x="204" y="157" width="100" height="20"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pqN-aS-Da5">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+                                        <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" name="AccentColor"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pqN-aS-Da5" firstAttribute="top" secondItem="PW2-rd-fOX" secondAttribute="top" id="6aV-zp-rcN"/>
+                                    <constraint firstAttribute="width" constant="100" id="FUj-y3-oPe"/>
+                                    <constraint firstAttribute="bottom" secondItem="pqN-aS-Da5" secondAttribute="bottom" id="Q1w-eo-cb0"/>
+                                    <constraint firstAttribute="height" constant="20" id="cfX-96-1Rw"/>
+                                    <constraint firstAttribute="trailing" secondItem="pqN-aS-Da5" secondAttribute="trailing" id="eA9-K7-xc3"/>
+                                    <constraint firstItem="pqN-aS-Da5" firstAttribute="leading" secondItem="PW2-rd-fOX" secondAttribute="leading" id="kYs-TV-3VY"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nZc-DJ-zZV">
+                                <rect key="frame" x="0.0" y="0.0" width="508" height="149"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i10-Oi-LYF">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PW2-rd-fOX" firstAttribute="centerX" secondItem="jfU-OS-sWr" secondAttribute="centerX" id="DTM-lp-Xrt"/>
+                            <constraint firstItem="nZc-DJ-zZV" firstAttribute="leading" secondItem="jfU-OS-sWr" secondAttribute="leading" id="F4y-qr-zLk"/>
+                            <constraint firstAttribute="bottom" secondItem="PW2-rd-fOX" secondAttribute="bottom" constant="4" id="MBY-a6-gBw"/>
+                            <constraint firstItem="nZc-DJ-zZV" firstAttribute="top" secondItem="jfU-OS-sWr" secondAttribute="top" id="hha-3T-Pjs"/>
+                            <constraint firstAttribute="trailing" secondItem="nZc-DJ-zZV" secondAttribute="trailing" id="rbK-MZ-rzq"/>
+                            <constraint firstItem="PW2-rd-fOX" firstAttribute="top" secondItem="nZc-DJ-zZV" secondAttribute="bottom" constant="8" symbolic="YES" id="uWV-sU-OJf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96470588235294119" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="jfU-OS-sWr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="W3B-Am-0NX"/>
+                <constraint firstItem="jfU-OS-sWr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="nIN-2m-faL"/>
+                <constraint firstAttribute="bottom" secondItem="jfU-OS-sWr" secondAttribute="bottom" constant="24" id="rFV-1c-SSR"/>
+                <constraint firstAttribute="trailing" secondItem="jfU-OS-sWr" secondAttribute="trailing" constant="4" id="sh1-Nf-zMD"/>
+            </constraints>
+            <size key="customSize" width="516" height="209"/>
+            <connections>
+                <outlet property="collectionView" destination="nZc-DJ-zZV" id="qRC-YP-rLS"/>
+                <outlet property="pageControl" destination="pqN-aS-Da5" id="VFQ-P5-9Hb"/>
+            </connections>
+            <point key="canvasLocation" x="97.70992366412213" y="76.408450704225359"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

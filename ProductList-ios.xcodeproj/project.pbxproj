@@ -22,6 +22,13 @@
 		8D3C55542DC0111400E159A8 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55532DC0111400E159A8 /* Extension+UIView.swift */; };
 		8D3C55562DC0158600E159A8 /* ProductNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55552DC0158600E159A8 /* ProductNetwork.swift */; };
 		8D3C55592DC0160A00E159A8 /* ApiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55582DC0160A00E159A8 /* ApiConstant.swift */; };
+		8D3C555B2DC01E6E00E159A8 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C555A2DC01E6E00E159A8 /* Extension+UIImageView.swift */; };
+		8D3C555F2DC022D500E159A8 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C555E2DC022D500E159A8 /* Extension+UILabel.swift */; };
+		8D3C55622DC048A100E159A8 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C55612DC048A000E159A8 /* HeaderCell.xib */; };
+		8D3C55632DC048A100E159A8 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55602DC048A000E159A8 /* HeaderCell.swift */; };
+		8D3C55692DC04AF300E159A8 /* HeaderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D3C55682DC04AF300E159A8 /* HeaderItemCell.xib */; };
+		8D3C556A2DC04AF300E159A8 /* HeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C55672DC04AF300E159A8 /* HeaderItemCell.swift */; };
+		8D3C556D2DC04D0A00E159A8 /* AdvancedPageControl in Frameworks */ = {isa = PBXBuildFile; productRef = 8D3C556C2DC04D0A00E159A8 /* AdvancedPageControl */; };
 		8DA7C1912DBFF4B30040E24D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1902DBFF4B30040E24D /* CombineMoya */; };
 		8DA7C1932DBFF4B30040E24D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1922DBFF4B30040E24D /* Moya */; };
 		8DA7C1952DBFF4B30040E24D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1942DBFF4B30040E24D /* RxMoya */; };
@@ -62,6 +69,12 @@
 		8D3C55532DC0111400E159A8 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		8D3C55552DC0158600E159A8 /* ProductNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNetwork.swift; sourceTree = "<group>"; };
 		8D3C55582DC0160A00E159A8 /* ApiConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstant.swift; sourceTree = "<group>"; };
+		8D3C555A2DC01E6E00E159A8 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
+		8D3C555E2DC022D500E159A8 /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
+		8D3C55602DC048A000E159A8 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		8D3C55612DC048A000E159A8 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		8D3C55672DC04AF300E159A8 /* HeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderItemCell.swift; sourceTree = "<group>"; };
+		8D3C55682DC04AF300E159A8 /* HeaderItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderItemCell.xib; sourceTree = "<group>"; };
 		8DA7C1672DBFF42B0040E24D /* ProductList-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProductList-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA7C19C2DBFF55A0040E24D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA7C19D2DBFF55A0040E24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +104,7 @@
 				8DA7C19B2DBFF5510040E24D /* Lottie in Frameworks */,
 				8DA7C1952DBFF4B30040E24D /* RxMoya in Frameworks */,
 				8DA7C1932DBFF4B30040E24D /* Moya in Frameworks */,
+				8D3C556D2DC04D0A00E159A8 /* AdvancedPageControl in Frameworks */,
 				8DA7C1982DBFF4D40040E24D /* SDWebImage in Frameworks */,
 				8DA7C1912DBFF4B30040E24D /* CombineMoya in Frameworks */,
 			);
@@ -147,7 +161,10 @@
 			children = (
 				8D3C554F2DC010BE00E159A8 /* ProductCell.swift */,
 				8D3C55502DC010BE00E159A8 /* ProductCell.xib */,
-				8D3C55532DC0111400E159A8 /* Extension+UIView.swift */,
+				8D3C55602DC048A000E159A8 /* HeaderCell.swift */,
+				8D3C55612DC048A000E159A8 /* HeaderCell.xib */,
+				8D3C55672DC04AF300E159A8 /* HeaderItemCell.swift */,
+				8D3C55682DC04AF300E159A8 /* HeaderItemCell.xib */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -350,7 +367,10 @@
 		8DA7C1DA2DBFF8430040E24D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8D3C55532DC0111400E159A8 /* Extension+UIView.swift */,
 				8DA7C1DB2DBFF8510040E24D /* Extension+UIApplication.swift */,
+				8D3C555A2DC01E6E00E159A8 /* Extension+UIImageView.swift */,
+				8D3C555E2DC022D500E159A8 /* Extension+UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,6 +397,7 @@
 				8DA7C1942DBFF4B30040E24D /* RxMoya */,
 				8DA7C1972DBFF4D40040E24D /* SDWebImage */,
 				8DA7C19A2DBFF5510040E24D /* Lottie */,
+				8D3C556C2DC04D0A00E159A8 /* AdvancedPageControl */,
 			);
 			productName = "ProductList-ios";
 			productReference = 8DA7C1672DBFF42B0040E24D /* ProductList-ios.app */;
@@ -410,6 +431,7 @@
 				8DA7C18F2DBFF4B30040E24D /* XCRemoteSwiftPackageReference "Moya" */,
 				8DA7C1962DBFF4D40040E24D /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				8DA7C1992DBFF5510040E24D /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				8D3C556B2DC04D0A00E159A8 /* XCRemoteSwiftPackageReference "AdvancedPageControl" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8DA7C1682DBFF42B0040E24D /* Products */;
@@ -428,6 +450,8 @@
 			files = (
 				8DA7C1A92DBFF55A0040E24D /* Assets.xcassets in Resources */,
 				8DA7C1C92DBFF6750040E24D /* CustomProgress.xib in Resources */,
+				8D3C55622DC048A100E159A8 /* HeaderCell.xib in Resources */,
+				8D3C55692DC04AF300E159A8 /* HeaderItemCell.xib in Resources */,
 				8DA7C1AB2DBFF55A0040E24D /* LaunchScreen.storyboard in Resources */,
 				8D3C55512DC010BE00E159A8 /* ProductCell.xib in Resources */,
 				8DA7C1CE2DBFF73A0040E24D /* progress.json in Resources */,
@@ -445,6 +469,7 @@
 				8DA7C1A62DBFF55A0040E24D /* AppDelegate.swift in Sources */,
 				8DA7C1BE2DBFF5E60040E24D /* CollectionViewProvider.swift in Sources */,
 				8D3C55542DC0111400E159A8 /* Extension+UIView.swift in Sources */,
+				8D3C556A2DC04AF300E159A8 /* HeaderItemCell.swift in Sources */,
 				8DA7C1D02DBFF7730040E24D /* LoadingProtocol.swift in Sources */,
 				8DA7C1C02DBFF5FD0040E24D /* ControllerBehaviorally.swift in Sources */,
 				8DA7C1A72DBFF55A0040E24D /* SceneDelegate.swift in Sources */,
@@ -458,14 +483,17 @@
 				8D3C55392DBFFDE100E159A8 /* ProductListVM.swift in Sources */,
 				8D3C553A2DBFFDE100E159A8 /* ProductListVC.swift in Sources */,
 				8D3C553B2DBFFDE100E159A8 /* ProductListProvider.swift in Sources */,
+				8D3C555F2DC022D500E159A8 /* Extension+UILabel.swift in Sources */,
 				8D3C55592DC0160A00E159A8 /* ApiConstant.swift in Sources */,
 				8DA7C1D32DBFF7B90040E24D /* BaseController.swift in Sources */,
 				8DA7C1DC2DBFF8510040E24D /* Extension+UIApplication.swift in Sources */,
 				8D3C553E2DBFFE3A00E159A8 /* ProductListUseCase.swift in Sources */,
 				8D3C554D2DC0040500E159A8 /* ProductListCoordinator.swift in Sources */,
 				8DA7C1CB2DBFF6CE0040E24D /* ClassNameProtocol.swift in Sources */,
+				8D3C555B2DC01E6E00E159A8 /* Extension+UIImageView.swift in Sources */,
 				8D3C55522DC010BE00E159A8 /* ProductCell.swift in Sources */,
 				8D3C55562DC0158600E159A8 /* ProductNetwork.swift in Sources */,
+				8D3C55632DC048A100E159A8 /* HeaderCell.swift in Sources */,
 				8D3C55462DBFFE6E00E159A8 /* ProductListBuilder.swift in Sources */,
 				8D3C55482DC003AD00E159A8 /* Coordinator.swift in Sources */,
 			);
@@ -682,6 +710,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8D3C556B2DC04D0A00E159A8 /* XCRemoteSwiftPackageReference "AdvancedPageControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mohn93/AdvancedPageControl";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 		8DA7C18F2DBFF4B30040E24D /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -709,6 +745,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8D3C556C2DC04D0A00E159A8 /* AdvancedPageControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D3C556B2DC04D0A00E159A8 /* XCRemoteSwiftPackageReference "AdvancedPageControl" */;
+			productName = AdvancedPageControl;
+		};
 		8DA7C1902DBFF4B30040E24D /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8DA7C18F2DBFF4B30040E24D /* XCRemoteSwiftPackageReference "Moya" */;

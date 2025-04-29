@@ -27,6 +27,8 @@ extension ProductListServiceImpl {
                         let _response = try JSONDecoder().decode([ProductListModel].self, from: respose.data)
                         promise(.success(_response))
                     } catch {
+                        print("Decoding error: \(error)") // BURAYI EKLE
+
                         promise(.failure(BaseError.decodingError))
                     }
                 case .failure(let error):

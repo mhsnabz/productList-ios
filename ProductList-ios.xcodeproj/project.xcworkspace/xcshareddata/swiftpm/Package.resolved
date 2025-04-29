@@ -1,6 +1,15 @@
 {
-  "originHash" : "8bb7e03147b45a39c9050006a1d2d105996429896df306f9ea70072fa93c31fc",
+  "originHash" : "b791bec8ca04cb488387f56d6ce1d62d57564893c0cf42e4f55ad4ba3e3a20c4",
   "pins" : [
+    {
+      "identity" : "advancedpagecontrol",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mohn93/AdvancedPageControl",
+      "state" : {
+        "revision" : "0dbe238ed2be3d46fb255e63c94e1e7ffd10b460",
+        "version" : "0.9.0"
+      }
+    },
     {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
