@@ -8,7 +8,7 @@ import Foundation
 import Combine
 
 protocol ProductDetailUseCase {
-   
+    func getProductDetail(productId: Int) -> AnyPublisher<ProductListModel?,BaseError>
 }
 
 struct ProductDetailUseCaseImpl: ProductDetailUseCase {
@@ -20,5 +20,7 @@ struct ProductDetailUseCaseImpl: ProductDetailUseCase {
 
 // MARK: - For Combine
 extension ProductDetailUseCaseImpl {
-    
+    func getProductDetail(productId: Int) -> AnyPublisher<ProductListModel?,BaseError> {
+        service.getProductDetail(productId: productId)
+    }
 }

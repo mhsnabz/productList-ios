@@ -15,21 +15,39 @@ final class ProductDetailVMImpl: ProductDetailVM {
     // Combine operations
     private let output = PassthroughSubject<ProductDetailVMOutput, Never>()
     private var cancellables = Set<AnyCancellable>()
-    
     private var useCase: ProductDetailUseCaseImpl?
-   
+    private let productId: Int
     
-    init(useCase: ProductDetailUseCaseImpl){
+    init(useCase: ProductDetailUseCaseImpl,productId: Int){
         self.useCase = useCase
+        self.productId = productId
     }
     
     func activityHandler(input: AnyPublisher<ProductDetailVMInput, Never>) -> AnyPublisher<ProductDetailVMOutput, Never> {
         input.sink { [weak self] inputEvent in
             switch inputEvent {
-            default: break
+            case .start:
+                self?.start()
             }
         }.store(in: &cancellables)
         return output.eraseToAnyPublisher()
+    }
+    
+    private func start() {
+        self.output.send(.isLoading(isShow: true))
+        self.useCase?.getProductDetail(productId: productId).sink(receiveCompletion: {[weak self] completion in
+            guard let self else { return }
+            switch completion {
+            case .finished:
+                self.output.send(.isLoading(isShow: false))
+            case .failure(let failure):
+                Logger.d(message: "error :\(failure.localizedDescription)")
+                self.output.send(.error(error: failure))
+            }
+        }, receiveValue: {[weak self] model in
+            guard let self else { return }
+            self.output.send(.prepareUI(model: model))
+        }).store(in: &cancellables)
     }
 }
 
@@ -37,6 +55,8 @@ final class ProductDetailVMImpl: ProductDetailVM {
 extension ProductDetailVMImpl {
     enum ProductDetailVMOutput {
         case isLoading(isShow: Bool)
+        case error(error: BaseError)
+        case prepareUI(model: ProductListModel?)
     }
 
     enum ProductDetailVMInput {

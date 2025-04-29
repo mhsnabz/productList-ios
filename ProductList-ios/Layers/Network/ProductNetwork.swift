@@ -11,6 +11,7 @@ import Moya
 enum ProductNetwork {
     case getProdcuts
     case getHeaderProcuts(limit: Int)
+    case getProductDetail(productId: Int)
 }
 
 extension ProductNetwork: TargetType {
@@ -22,6 +23,8 @@ extension ProductNetwork: TargetType {
             return ApiConstant.path
         case .getHeaderProcuts:
             return ApiConstant.path
+        case .getProductDetail(productId: let id):
+            return ApiConstant.path+"/\(id)"
         }
     }
     
@@ -29,7 +32,7 @@ extension ProductNetwork: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .getProdcuts:
+        case .getProdcuts,.getProductDetail:
             return .requestPlain
         case .getHeaderProcuts(let limit):
             var params = [String: Any]()
