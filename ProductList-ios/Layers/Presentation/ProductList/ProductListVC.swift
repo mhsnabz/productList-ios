@@ -2,7 +2,7 @@
 //  ProductList-ios
 //
 //  Created by Mahsun Abuzeyitoğlu on 28.04.2025.
-//  
+//
 
 import UIKit
 import Combine
@@ -17,17 +17,22 @@ final class ProductListVC: BaseController, ControllerCombineBehaviorally {
     // Combine operations Binding
     private let inputVM = PassthroughSubject<ProductListVMImpl.ProductListVMInput, Never>()
     private let inputPR = PassthroughSubject<ProductListProviderImpl.ProductListProviderInput, Never>()
-    
+    private let userInteraction = PassthroughSubject<UserInteraction,Never>()
     // UI Ref
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    enum UserInteraction {
+        case didSelectProduct(id: Int)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         binding()
         inputPR.send(.setupUI(collectionView: collectionView))
+        inputPR.send(.setupUserInteraction(intreaction: userInteraction))
         inputVM.send(.start)
     }
-
+    
     func inject(vm: V, provider: any P) {
         self.vm = vm
         self.pr = provider
@@ -48,7 +53,6 @@ extension ProductListVC {
                 Logger.e(message: error.localizedDescription)
             case .isLoading(isShow: let isShow):
                 self?.loading(isShow: isShow)
-            default: break
             }
         }).store(in: &cancellabes)
         
@@ -59,5 +63,14 @@ extension ProductListVC {
             default: break
             }
         }).store(in: &cancellabes)
+        
+        userInteraction.sink {[weak self] eventType in
+            guard let self else { return }
+            switch eventType {
+            case .didSelectProduct(let id):
+                let productDetailCoordinator = ProductDetailCoordinator(navigationController: self.navigationController)
+                productDetailCoordinator.start(id: id)
+            }
+        }.store(in: &cancellabes)
     }
 }

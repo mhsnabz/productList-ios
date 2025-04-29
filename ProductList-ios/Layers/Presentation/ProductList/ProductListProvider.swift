@@ -15,7 +15,7 @@ final class ProductListProviderImpl: NSObject, ProductListProvider {
     typealias T = ProductListVMImpl.SectionType
     typealias I = IndexPath
     var dataList: [ProductListVMImpl.SectionType] = []
-    
+    private var userInteraction: PassthroughSubject<ProductListVC.UserInteraction,Never>?
     // Binding
     private let output = PassthroughSubject<ProductListProviderOutput, Never>()
     private var cancellables = Set<AnyCancellable>()
@@ -36,6 +36,7 @@ extension ProductListProviderImpl {
     
     enum ProductListProviderInput {
         case setupUI(collectionView: UICollectionView), prepareCollectionView(data: [ProductListVMImpl.SectionType])
+        case setupUserInteraction(intreaction: PassthroughSubject<ProductListVC.UserInteraction,Never>?)
     }
 }
 
@@ -48,7 +49,8 @@ extension ProductListProviderImpl {
                 self?.setupUI(collectionView)
             case .prepareCollectionView(let data):
                 self?.prepareCollectionView(data: data)
-            default: break
+            case .setupUserInteraction(intreaction: let interaction):
+                self?.userInteraction = interaction
             }
         }.store(in: &cancellables)
         return output.eraseToAnyPublisher()
@@ -95,7 +97,7 @@ extension ProductListProviderImpl: UICollectionViewDelegate, UICollectionViewDat
                 return cell
             case .headerProduct(model: let model):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.classname, for: indexPath) as! HeaderCell
-                cell.setupUI(dataSource: model)
+                cell.setupUI(dataSource: model,userInteraction: self.userInteraction)
                 return cell
             }
         }
@@ -111,6 +113,22 @@ extension ProductListProviderImpl: UICollectionViewDelegate, UICollectionViewDat
                 return CGSize(width: collectionView.frame.width, height: 224)
             case .product:
                 return CGSize(width: collectionView.frame.width / 2 , height: collectionView.frame.width * 0.71)
+            }
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = dataList[indexPath.section]
+        switch section{
+        case .listSection(rows: let row):
+            let rowType = row[indexPath.row]
+            switch rowType {
+            case .product(model: let model):
+                if let id = model.id {
+                    self.userInteraction?.send(.didSelectProduct(id: id))
+                }
+            default: break
             }
         }
     }

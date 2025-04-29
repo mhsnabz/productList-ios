@@ -6,8 +6,9 @@
 //
 
 import Foundation
-class ProductListCoordinator: Coordinator {
-    override func start() {
-      
+class ProductDetailCoordinator: Coordinator {
+    override func start(id: Int) {
+        let vc = ProductDetailBuilderImpl().build(id: id)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

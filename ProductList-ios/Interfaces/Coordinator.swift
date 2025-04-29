@@ -20,5 +20,6 @@ class Coordinator {
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    func start(id: String) { }
+    
+    func start(id: Int) { }
 }

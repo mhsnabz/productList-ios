@@ -6,15 +6,23 @@
 //
 
 import UIKit
-import AdvancedPageControl
+import Combine
 class HeaderCell: UICollectionViewCell {
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     private var dataSource = [ProductListModel]()
+    private var userInteraction: PassthroughSubject<ProductListVC.UserInteraction,Never>?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userInteraction = nil
+        dataSource.removeAll()
     }
     
     private func setupUI() {
@@ -24,8 +32,9 @@ class HeaderCell: UICollectionViewCell {
         pageControl.currentPage = 0
     }
     
-    func setupUI(dataSource: [ProductListModel]) {
+    func setupUI(dataSource: [ProductListModel],userInteraction: PassthroughSubject<ProductListVC.UserInteraction,Never>?) {
         self.dataSource = dataSource
+        self.userInteraction = userInteraction
         pageControl.numberOfPages = dataSource.count
         pageControl.isHidden = dataSource.count <= 1
         pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
@@ -89,6 +98,11 @@ extension HeaderCell: UICollectionViewDelegate,UICollectionViewDataSource, UICol
         updatePageControl()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let id = dataSource[indexPath.row].id , let userInteraction {
+            userInteraction.send(.didSelectProduct(id: id))
+        }
+    }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {

@@ -9,7 +9,6 @@ import UIKit
 
 class ProductCell: UICollectionViewCell {
 
-    @IBOutlet weak var priceLvl: UILabel!
     @IBOutlet weak var followerCount: UILabel!
     @IBOutlet weak var sellerCount: UIButton!
     @IBOutlet weak var productPrice: UILabel!
