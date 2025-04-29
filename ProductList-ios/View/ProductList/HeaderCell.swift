@@ -21,13 +21,14 @@ class HeaderCell: UICollectionViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: HeaderItemCell.classname, bundle: nil), forCellWithReuseIdentifier: HeaderItemCell.classname)
+        pageControl.currentPage = 0
     }
     
     func setupUI(dataSource: [ProductListModel]) {
         self.dataSource = dataSource
         pageControl.numberOfPages = dataSource.count
-        pageControl.currentPage = 0
         pageControl.isHidden = dataSource.count <= 1
+        pageControl.addTarget(self, action: #selector(pageControlDidChange(_:)), for: .valueChanged)
         DispatchQueue.main.async {[weak self] in
             guard let self else { return }
             self.collectionView.reloadData()
@@ -46,8 +47,18 @@ class HeaderCell: UICollectionViewCell {
         let currentPage = calculateCurrentPage()
         if pageControl.currentPage != currentPage {
             pageControl.currentPage = currentPage
-            
         }
+    }
+    
+    private func scrollToPage(index: Int, animated: Bool) {
+        guard index >= 0 && index < dataSource.count else { return }
+        let indexPath = IndexPath(item: index, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
+    }
+    
+    @objc private func pageControlDidChange(_ sender: UIPageControl) {
+        let currentPage = sender.currentPage
+        scrollToPage(index: currentPage, animated: true)
     }
 }
 
@@ -80,7 +91,6 @@ extension HeaderCell: UICollectionViewDelegate,UICollectionViewDataSource, UICol
     
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
         if !decelerate {
             updatePageControl()
         }

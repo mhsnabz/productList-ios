@@ -10,7 +10,7 @@ import UIKit
 
 extension UILabel {
     func setAttributedPrice(_ price: Double,currencySymbol: String,mainFont: UIFont,secondaryFont: UIFont, mainColor: UIColor = .label,secondaryColor: UIColor = .darkGray,locale: Locale = Locale(identifier: "en_US")) {
-        // 1. NumberFormatter ile fiyatı string'e çevir
+
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         formatter.minimumFractionDigits = 2
@@ -39,7 +39,6 @@ extension UILabel {
         }
 
 
-        // 3. NSAttributedString niteliklerini tanımla
         let mainAttributes: [NSAttributedString.Key: Any] = [
             .font: mainFont,
             .foregroundColor: mainColor
@@ -58,34 +57,3 @@ extension UILabel {
         self.attributedText = finalAttributedString
     }
 }
-
-// MARK: - Kullanım Örneği
-
-/*
- // ViewController'ınızın içinde:
- let priceLabel = UILabel()
- let priceValue: Double = 109.95
- let currency = "TL" // Veya "$" , "€"
-
- // Fontları tanımla (Kendi font isimlerinizi ve boyutlarınızı kullanın)
- guard let mainPriceFont = UIFont(name: "AvenirNext-Bold", size: 24), // Ana kısım için büyük ve kalın
-       let secondaryPriceFont = UIFont(name: "AvenirNext-Medium", size: 16) else { // Kuruş/Sembol için küçük ve normal/orta
-     fatalError("Fontlar yüklenemedi!")
- }
-
- // Extension'ı çağır
- priceLabel.setAttributedPrice(
-     priceValue,
-     currencySymbol: currency,
-     mainFont: mainPriceFont,
-     secondaryFont: secondaryPriceFont,
-     mainColor: .black,        // Ana renk
-     secondaryColor: .darkGray, // İkincil renk (daha soluk)
-     locale: Locale(identifier: "tr_TR") // Türkçe formatlama (örn: 109,95 TL)
-     // locale: Locale(identifier: "en_US") // Amerikan formatlama (örn: 109.95 $)
- )
-
- // priceLabel'ı view'a ekleyin ve constraintlerini ayarlayın
- view.addSubview(priceLabel)
- // ... Auto Layout kodları ...
-*/

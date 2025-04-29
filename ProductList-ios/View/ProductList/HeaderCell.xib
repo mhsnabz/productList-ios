@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfU-OS-sWr">
-                        <rect key="frame" x="4" y="4" width="508" height="181"/>
+                        <rect key="frame" x="0.0" y="0.0" width="516" height="185"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PW2-rd-fOX">
-                                <rect key="frame" x="204" y="157" width="100" height="20"/>
+                                <rect key="frame" x="208" y="161" width="100" height="20"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pqN-aS-Da5">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
@@ -39,7 +39,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nZc-DJ-zZV">
-                                <rect key="frame" x="0.0" y="0.0" width="508" height="149"/>
+                                <rect key="frame" x="0.0" y="0.0" width="516" height="153"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i10-Oi-LYF">
                                     <size key="itemSize" width="128" height="128"/>
@@ -68,10 +68,10 @@
             </view>
             <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.96470588235294119" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="jfU-OS-sWr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="W3B-Am-0NX"/>
-                <constraint firstItem="jfU-OS-sWr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="nIN-2m-faL"/>
+                <constraint firstItem="jfU-OS-sWr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="W3B-Am-0NX"/>
+                <constraint firstItem="jfU-OS-sWr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nIN-2m-faL"/>
                 <constraint firstAttribute="bottom" secondItem="jfU-OS-sWr" secondAttribute="bottom" constant="24" id="rFV-1c-SSR"/>
-                <constraint firstAttribute="trailing" secondItem="jfU-OS-sWr" secondAttribute="trailing" constant="4" id="sh1-Nf-zMD"/>
+                <constraint firstAttribute="trailing" secondItem="jfU-OS-sWr" secondAttribute="trailing" id="sh1-Nf-zMD"/>
             </constraints>
             <size key="customSize" width="516" height="209"/>
             <connections>
