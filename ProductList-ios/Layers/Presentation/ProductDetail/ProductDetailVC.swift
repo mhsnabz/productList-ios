@@ -33,6 +33,11 @@ final class ProductDetailVC: BaseController, ControllerCombineBehaviorallyWithou
     func inject(vm: V) {
         self.vm = vm
     }
+    
+    override func alertActionOK() {
+        super.alertActionOK()
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Binding
@@ -40,14 +45,15 @@ extension ProductDetailVC {
     func binding() {
         // Pr Event Binding
         let output = vm?.activityHandler(input: inputVM.eraseToAnyPublisher())
-        output?.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] event in // If not needed, DispatchQueue.main can be removed.
+        output?.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] event in
+            guard let self else { return }
             switch event {
             case .isLoading(isShow: let isShow):
-                self?.loading(isShow: isShow)
+                self.loading(isShow: isShow)
             case .error(error: let error):
-                Logger.d(message: "error :\(error.localizedDescription)")
+                self.showSimpleAlert(title: "Hata", message: error.localizedDescription, on: self)
             case .prepareUI(model: let model):
-                self?.setupUI(model: model)
+                self.setupUI(model: model)
             }
         }).store(in: &cancellabes)
     }
@@ -60,9 +66,8 @@ extension ProductDetailVC {
             self.setupRating(rate: rate, rateCount: rateCount)
         }
         
-        if let price = model?.price , let mainPriceFont = UIFont(name: "AvenirNext-DemiBold", size: 24),
-            let secondaryPriceFont = UIFont(name: "AvenirNext-Regular", size: 14) {
-            self.priceLbl.setAttributedPrice(price, currencySymbol: "TL", mainFont: mainPriceFont, secondaryFont: secondaryPriceFont)
+        if let price = model?.price {
+            self.priceLbl.setAttributedPrice(price, currencySymbol: "TL", mainFont: .AppFonts.boldFont, secondaryFont: .AppFonts.regularFont)
         }
         
         if let category = model?.category {

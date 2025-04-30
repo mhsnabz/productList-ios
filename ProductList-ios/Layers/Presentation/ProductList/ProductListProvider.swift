@@ -24,7 +24,8 @@ final class ProductListProviderImpl: NSObject, ProductListProvider {
     
   
     private enum Layout {
-        static let estimatedCellHeight: CGFloat = 54
+        static let headerSize: CGFloat = 224
+        static let productRatio: CGFloat = 0.71
     }
 }
 
@@ -110,9 +111,9 @@ extension ProductListProviderImpl: UICollectionViewDelegate, UICollectionViewDat
             let rowType = rows[indexPath.row]
             switch rowType {
             case .headerProduct:
-                return CGSize(width: collectionView.frame.width, height: 224)
+                return CGSize(width: collectionView.frame.width, height: Layout.headerSize)
             case .product:
-                return CGSize(width: collectionView.frame.width / 2 , height: collectionView.frame.width * 0.71)
+                return CGSize(width: collectionView.frame.width / 2 , height: collectionView.frame.width * Layout.productRatio)
             }
         }
     }

@@ -41,10 +41,7 @@ class ProductCell: UICollectionViewCell {
         discountRate.text = "%\(model.discountRate)"
         followerCount.text = "\(model.followerCount) follower(s)"
         
-        if let mainPriceFont = UIFont(name: "AvenirNext-DemiBold", size: 24),
-              let secondaryPriceFont = UIFont(name: "AvenirNext-Regular", size: 14) {
-            productPrice.setAttributedPrice(model.price ?? 0, currencySymbol: "$", mainFont: mainPriceFont, secondaryFont: secondaryPriceFont)
-        }
+        productPrice.setAttributedPrice(model.price ?? 0, currencySymbol: "$", mainFont: .AppFonts.boldFont, secondaryFont: .AppFonts.regularFont)
         
     }
     

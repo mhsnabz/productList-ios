@@ -37,6 +37,7 @@
 		8D9519802DC16E3F00F6F81B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95197F2DC16E3F00F6F81B /* StarRatingView.swift */; };
 		8D9519822DC16E5300F6F81B /* StarRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9519812DC16E5300F6F81B /* StarRatingView.xib */; };
 		8D9519862DC1726600F6F81B /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D9519842DC1726600F6F81B /* ProductDetailVC.xib */; };
+		8D9519882DC29B0D00F6F81B /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9519872DC29B0D00F6F81B /* Extension+UIFont.swift */; };
 		8DA7C1912DBFF4B30040E24D /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1902DBFF4B30040E24D /* CombineMoya */; };
 		8DA7C1932DBFF4B30040E24D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1922DBFF4B30040E24D /* Moya */; };
 		8DA7C1952DBFF4B30040E24D /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 8DA7C1942DBFF4B30040E24D /* RxMoya */; };
@@ -91,6 +92,7 @@
 		8D95197F2DC16E3F00F6F81B /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		8D9519812DC16E5300F6F81B /* StarRatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarRatingView.xib; sourceTree = "<group>"; };
 		8D9519842DC1726600F6F81B /* ProductDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVC.xib; sourceTree = "<group>"; };
+		8D9519872DC29B0D00F6F81B /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		8DA7C1672DBFF42B0040E24D /* ProductList-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProductList-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA7C19C2DBFF55A0040E24D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DA7C19D2DBFF55A0040E24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				8DA7C1DB2DBFF8510040E24D /* Extension+UIApplication.swift */,
 				8D3C555A2DC01E6E00E159A8 /* Extension+UIImageView.swift */,
 				8D3C555E2DC022D500E159A8 /* Extension+UILabel.swift */,
+				8D9519872DC29B0D00F6F81B /* Extension+UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA7C1A62DBFF55A0040E24D /* AppDelegate.swift in Sources */,
+				8D9519882DC29B0D00F6F81B /* Extension+UIFont.swift in Sources */,
 				8DA7C1BE2DBFF5E60040E24D /* CollectionViewProvider.swift in Sources */,
 				8D3C55542DC0111400E159A8 /* Extension+UIView.swift in Sources */,
 				8D3C556A2DC04AF300E159A8 /* HeaderItemCell.swift in Sources */,

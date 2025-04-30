@@ -33,22 +33,6 @@ final class ProductDetailVMImpl: ProductDetailVM {
         return output.eraseToAnyPublisher()
     }
     
-    private func start() {
-        self.output.send(.isLoading(isShow: true))
-        self.useCase?.getProductDetail(productId: productId).sink(receiveCompletion: {[weak self] completion in
-            guard let self else { return }
-            switch completion {
-            case .finished:
-                self.output.send(.isLoading(isShow: false))
-            case .failure(let failure):
-                Logger.d(message: "error :\(failure.localizedDescription)")
-                self.output.send(.error(error: failure))
-            }
-        }, receiveValue: {[weak self] model in
-            guard let self else { return }
-            self.output.send(.prepareUI(model: model))
-        }).store(in: &cancellables)
-    }
 }
 
 // MARK: - Events
@@ -64,14 +48,22 @@ extension ProductDetailVMImpl {
     }
 }
 
-// MARK: - Prepare UI
-extension ProductDetailVMImpl {
-    private func prepareUI() {
-        
-    }
-}
-
 // MARK: - Services
 extension ProductDetailVMImpl {
-    
+    private func start() {
+        self.output.send(.isLoading(isShow: true))
+        self.useCase?.getProductDetail(productId: productId).sink(receiveCompletion: {[weak self] completion in
+            guard let self else { return }
+            switch completion {
+            case .failure(let failure):
+                Logger.d(message: "error :\(failure.localizedDescription)")
+                self.output.send(.error(error: failure))
+            default: break
+            }
+            self.output.send(.isLoading(isShow: false))
+        }, receiveValue: {[weak self] model in
+            guard let self else { return }
+            self.output.send(.prepareUI(model: model))
+        }).store(in: &cancellables)
+    }
 }

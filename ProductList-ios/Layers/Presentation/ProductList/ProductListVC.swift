@@ -45,23 +45,21 @@ extension ProductListVC {
         // VM Event Binding
         let output = vm?.activityHandler(input: inputVM.eraseToAnyPublisher())
         output?.receive(on: DispatchQueue.main).sink(receiveValue: { [weak self] event in
+            guard let self else { return }
             switch event {
             case .updateUI(sections: let section):
                 Logger.d(message: "section :\(section)")
-                self?.inputPR.send(.prepareCollectionView(data: section))
+                self.inputPR.send(.prepareCollectionView(data: section))
             case .error(error: let error):
-                Logger.e(message: error.localizedDescription)
+                self.showSimpleAlert(title: "Hata", message: error.localizedDescription, on: self)
             case .isLoading(isShow: let isShow):
-                self?.loading(isShow: isShow)
+                self.loading(isShow: isShow)
             }
         }).store(in: &cancellabes)
         
         // Provider Event Binding
         let providerOutput = pr?.activityHandler(input: inputPR.eraseToAnyPublisher())
-        providerOutput?.sink(receiveValue: { [weak self] event in
-            switch event {
-            default: break
-            }
+        providerOutput?.sink(receiveValue: { _ in
         }).store(in: &cancellabes)
         
         userInteraction.sink {[weak self] eventType in
